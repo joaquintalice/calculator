@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
+
+body {
+    align-items: center;
+    display: flex;
+    font-family: 'Source Code Pro', monospace;
+    flex-direction: column;
+    color: #f2f2f2;
+    justify-content: center;
+}
+
+@keyframes move-it {
+    0% {
+        background-position: initial;
+    }
+
+    100% {
+        background-position: 100px 0px;
+    }
+}
+
+body {
+    background: repeating-linear-gradient(45deg,
+            #606dbc,
+            #606dbc 5%,
+            #465298 5%,
+            #465298 10%);
+    background-size: 100px 100px;
+    animation: move-it 2s linear infinite;
+}
+
+
+#calculator {
+    width: 500px;
+    height: 700px;
+    padding: 6px;
+    border: 1px black solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgba(48, 48, 48, 0.836);
+    border-radius: 10px;
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.4);
+    margin-top: 3rem;
+}
+
+#display {
+    flex: 1;
+    background-color: rgba(100, 99, 99, 0.705);
+    border-radius: 8px;
+    margin: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 90px;
+    font-size: 36px;
+}
+
+.row {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    border-radius: 8px;
+    flex: 1;
+    margin: 4px;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+}
+
+.operator,
+button[data-key="="] {
+    background-color: rgba(0, 255, 157, 0.623);
+}
+
+button[data-key="="]:hover {
+    background-color: rgb(0, 255, 0);
+}
+
+.operand,
+button[data-key="."] {
+    background-color: rgba(69, 223, 164, 0.726);
+}
+
+.operand:hover,
+button[data-key="."]:hover {
+    background-color: rgb(0, 255, 157);
+    ;
+}
+
+
+
+.command {
+    background-color: rgba(255, 0, 0, 0.664);
+}
+
+.command:hover {
+    background-color: rgb(255, 0, 0);
+}
+
+.operator:hover {
+    background-color: rgb(0, 255, 85);
+}
+
+.error {
+    background-image: url("./assets/face.jpg");
+    background-size: contain;
+}
+
+.good {
+    background-image: url("./assets/smileFace.jpg");
+    background-size: contain;
+}
