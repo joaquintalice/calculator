@@ -89,9 +89,7 @@ function factorial(a) {
 }
 
 function ac() {
-    // Add your logic for AC function here
 }
 
 function del() {
-    // Add your logic for del function here
 }
