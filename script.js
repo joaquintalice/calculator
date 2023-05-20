@@ -14,7 +14,9 @@ command.forEach((key) => {
         const keyPressed = e.target.textContent;
         if (keyPressed === "AC") {
             displayBot.textContent = "";
-            displayTop.textContent = "";
+            displayTop.textContent = "-";
+        } else if (keyPressed === "DEL") {
+            displayBot.textContent = displayBot.textContent.slice(0, -1);
         }
     });
 });
@@ -22,9 +24,7 @@ command.forEach((key) => {
 operand.forEach((key) => {
     key.addEventListener("click", function (e) {
         const keyPressed = e.target.textContent;
-        if (parseInt(keyPressed) >= 1 || parseInt(keyPressed) <= 9) {
-            displayBot.textContent += keyPressed;
-        }
+        displayBot.textContent += keyPressed;
     });
 });
 
@@ -38,39 +38,44 @@ operator.forEach((key) => {
 result.addEventListener("click", function () {
     let content = displayBot.textContent;
 
-    let nums = content.split(/[-+*/]/);
-    let operator = content.match(/[-+*/]/)[0];
+    let nums = content.split(/[-+*/!]/);
+    let operators = content.match(/[-+*/!]/g);
+    console.log(operators.length)
+    let result = parseInt(nums[0]);
+    for (let i = 0; i < operators.length; i++) {
+        let n = parseInt(nums[i + 1]);
 
-    let n1 = parseInt(nums[0]);
-    let n2 = parseInt(nums[1]);
-
-    let result;
-    switch (operator) {
-        case "+":
-            result = add(n1, n2);
-            break;
-        case "-":
-            result = substract(n1, n2);
-            break;
-        case "*":
-            result = multiply(n1, n2);
-            break;
-        case "/":
-            result = divide(n1, n2);
-            break;
-        default:
-            console.log("Operador no válido");
-            return;
+        switch (operators[i]) {
+            case "+":
+                result = add(result, n);
+                break;
+            case "-":
+                result = subtract(result, n);
+                break;
+            case "*":
+                result = multiply(result, n);
+                break;
+            case "/":
+                result = divide(result, n);
+                break;
+            case "!":
+                result = factorial(nums[0]);
+                break;
+            default:
+                console.log("Operador no válido");
+                return;
+        }
     }
 
-    displayBot.textContent = result;
+    displayTop.textContent = result.toFixed(2);
+    displayBot.textContent = "";
 });
 
 function add(a, b) {
     return a + b;
 }
 
-function substract(a, b) {
+function subtract(a, b) {
     return a - b;
 }
 
@@ -86,10 +91,4 @@ function factorial(a) {
     if (a === 0) return 1;
 
     return a * factorial(a - 1);
-}
-
-function ac() {
-}
-
-function del() {
 }
