@@ -7,17 +7,11 @@ const result = document.getElementById("result");
 const dot = document.getElementById("dot");
 
 
+
 command.forEach((key) => {
-    key.addEventListener("click", function (e) {
-        const keyPressed = e.target.textContent;
-        if (keyPressed === "AC") {
-            displayBot.textContent = "";
-            displayTop.textContent = "-";
-        } else if (keyPressed === "DEL") {
-            displayBot.textContent = displayBot.textContent.slice(0, -1);
-        }
-    });
+    key.addEventListener("click", DEL)
 });
+
 
 operand.forEach((key) => {
     key.addEventListener("click", function (e) {
@@ -37,19 +31,21 @@ dot.addEventListener("click", function () {
     displayBot.textContent += dot.textContent;
 });
 
-window.addEventListener("keyUp", function () {
 
-})
 
 function operate() {
     let content = displayBot.textContent;
 
-    let nums = content.split(/[-+*/!]/);
-    let operators = content.match(/[-+*/!]/g);
+    let nums = content.split(/[-+*/!%]/);
+    let operators = content.match(/[-+*/!%]/g);
     console.table(nums)
     console.table(operators)
     if (nums.length === 1 || operators.length === 0) {
         displayBot.textContent = "Syntax error";
+
+        setTimeout(() => {
+            displayBot.textContent = "";
+        }, 1200);
     }
 
     let result = parseFloat(nums[0]);
@@ -73,14 +69,24 @@ function operate() {
             case "!":
                 result = factorial(nums[0]);
                 break;
+            case "%":
+                result = module(result, n);
+                break;
             default:
                 displayBot.textContent("Syntax error");
                 return;
         }
     }
-
-    displayTop.textContent = displayBot.textContent;
-    displayBot.textContent = result.toFixed(2);
+    if (isNaN(result)) {
+        let temp = displayBot.textContent;
+        displayBot.textContent = "Syntax error";
+        setTimeout(() => {
+            displayBot.textContent = temp;
+        }, 1200);
+    } else {
+        displayTop.textContent = displayBot.textContent;
+        displayBot.textContent = result.toFixed(2);
+    }
 }
 
 result.addEventListener("click", operate);
@@ -106,3 +112,39 @@ function factorial(a) {
 
     return a * factorial(a - 1);
 }
+
+function module(a, b) {
+    return ((a % b + b) % b);
+}
+
+function DEL(e) {
+    const keyPressed = e.target.textContent;
+    if (keyPressed === "AC" || keyP === "AC") {
+        displayBot.textContent = "";
+        displayTop.textContent = "-";
+    } else if (keyPressed === "DEL" || keyP === "DEL") {
+        displayBot.textContent = displayBot.textContent.slice(0, -1);
+    }
+};
+
+function keyboardFunctionality(e) {
+    const getKeys = document.querySelectorAll(`button[data-key="${e.code}"]`);
+    keyP = getKeys[0].textContent;
+
+    switch (keyP) {
+        case "=":
+            operate();
+            break;
+        case "DEL":
+            DEL(e);
+            break;
+        case "AC":
+            DEL(e);
+            break;
+        default:
+            displayBot.textContent += keyP;
+    }
+
+    console.log(keyP);
+}
+window.addEventListener("keyup", keyboardFunctionality);
