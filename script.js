@@ -4,10 +4,8 @@ const operator = document.querySelectorAll(".operator");
 const displayTop = document.getElementById("displayTop");
 const displayBot = document.getElementById("displayBot");
 const result = document.getElementById("result");
+const dot = document.getElementById("dot");
 
-console.log(operand);
-console.log(command);
-console.log(operator);
 
 command.forEach((key) => {
     key.addEventListener("click", function (e) {
@@ -35,15 +33,29 @@ operator.forEach((key) => {
     });
 });
 
-result.addEventListener("click", function () {
+dot.addEventListener("click", function () {
+    displayBot.textContent += dot.textContent;
+});
+
+window.addEventListener("keyUp", function () {
+
+})
+
+function operate() {
     let content = displayBot.textContent;
 
     let nums = content.split(/[-+*/!]/);
     let operators = content.match(/[-+*/!]/g);
-    console.log(operators.length)
-    let result = parseInt(nums[0]);
+    console.table(nums)
+    console.table(operators)
+    if (nums.length === 1 || operators.length === 0) {
+        displayBot.textContent = "Syntax error";
+    }
+
+    let result = parseFloat(nums[0]);
+
     for (let i = 0; i < operators.length; i++) {
-        let n = parseInt(nums[i + 1]);
+        let n = parseFloat(nums[i + 1]);
 
         switch (operators[i]) {
             case "+":
@@ -62,14 +74,16 @@ result.addEventListener("click", function () {
                 result = factorial(nums[0]);
                 break;
             default:
-                console.log("Operador no válido");
+                displayBot.textContent("Syntax error");
                 return;
         }
     }
 
-    displayTop.textContent = result.toFixed(2);
-    displayBot.textContent = "";
-});
+    displayTop.textContent = displayBot.textContent;
+    displayBot.textContent = result.toFixed(2);
+}
+
+result.addEventListener("click", operate);
 
 function add(a, b) {
     return a + b;
