@@ -2,9 +2,8 @@
 
 body {
     align-items: center;
-    display: flex;
+    margin: 0;
     font-family: 'Source Code Pro', monospace;
-    flex-direction: column;
     background-image: url('./assets/background.jpg');
     background-size: cover;
     -webkit-animation: slidein 20s;
@@ -41,7 +40,44 @@ body {
     }
 }
 
+.header {
+    display: flex;
+    background-color: #06070a60;
+    padding: 0px 20px;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    font-size: 0.7rem;
+}
 
+.owner,
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    color: #000000;
+}
+
+.owner img {
+    width: 2.6rem;
+    -webkit-user-drag: none;
+}
+
+
+.test {
+    color: var(--font);
+    transition: transform 0.3s ease-in-out;
+}
+
+.test:hover {
+    transform: rotate(360deg) scale(1.2);
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+}
 
 #calculator {
     width: 370px;
@@ -54,7 +90,7 @@ body {
     background-color: rgba(0, 0, 0, 0.041);
     border-radius: 10px;
     box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.7);
-    margin-top: 8rem;
+    margin-top: 3rem;
 }
 
 .display {
@@ -217,6 +253,13 @@ button[data-key="Period"]:hover {
 
 @media screen and (max-width: 400px) {
 
+    .header {
+        font-size: 8px;
+    }
+
+    .owner img {
+        width: 1.8rem;
+    }
 
     @-webkit-keyframes slidein {
         from {
