@@ -73,7 +73,7 @@ function operate() {
                 result = module(result, n);
                 break;
             default:
-                displayBot.textContent("Syntax error");
+                displayBot.textContent = "Syntax error";
                 return;
         }
     }
@@ -121,7 +121,7 @@ function DEL(e) {
     const keyPressed = e.target.textContent;
     if (keyPressed === "AC" || keyP === "AC") {
         displayBot.textContent = "";
-        displayTop.textContent = "-";
+        displayTop.textContent = "";
     } else if (keyPressed === "DEL" || keyP === "DEL") {
         displayBot.textContent = displayBot.textContent.slice(0, -1);
     }
