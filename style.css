@@ -79,6 +79,18 @@ body {
     justify-content: center;
 }
 
+.manual {
+    color: white;
+    border: 2px rgba(0, 0, 0, 0.685) solid;
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.7);
+    height: 25rem;
+    padding: 10px;
+    margin-top: 6rem;
+    margin-left: 7px;
+    border-radius: 7px;
+    background-color: #00000098;
+}
+
 #calculator {
     width: 370px;
     height: 550px;
@@ -90,7 +102,7 @@ body {
     background-color: rgba(0, 0, 0, 0.041);
     border-radius: 10px;
     box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.7);
-    margin-top: 3rem;
+    margin-top: 6rem;
 }
 
 .display {
@@ -208,6 +220,18 @@ button[data-key="Period"]:hover {
         }
     }
 
+    .manual {
+        color: white;
+        border: 2px rgba(0, 0, 0, 0.685) solid;
+        box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.7);
+        height: 25rem;
+        padding: 10px;
+        margin-top: 4rem;
+        margin-left: 7px;
+        border-radius: 7px;
+        background-color: #00000098;
+    }
+
     #calculator {
         width: 259px;
         height: 385px;
@@ -215,7 +239,7 @@ button[data-key="Period"]:hover {
         border: 0.7px black solid;
         border-radius: 7px;
         box-shadow: 5.6px 5.6px 14px rgba(0, 0, 0, 0.7);
-        margin-top: 5.6rem;
+        margin-top: 4rem;
     }
 
     .display {
@@ -249,16 +273,32 @@ button[data-key="Period"]:hover {
 }
 
 
+@media screen and (max-width: 700px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
+    .manual {
+        margin-bottom: 1rem;
+    }
 
-@media screen and (max-width: 400px) {
+    .manual h1 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+}
+
+@media screen and (max-width: 430px) {
 
     .header {
-        font-size: 8px;
+        font-size: 6px;
     }
 
     .owner img {
-        width: 1.8rem;
+        width: 1.5rem;
     }
 
     @-webkit-keyframes slidein {
