@@ -5,94 +5,275 @@ body {
     display: flex;
     font-family: 'Source Code Pro', monospace;
     flex-direction: column;
-    background-color: #726c6c;
-    justify-content: center;
+    background-image: url('./assets/background.jpg');
+    background-size: cover;
+    -webkit-animation: slidein 20s;
+    animation: slidein 20s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
 }
 
+@-webkit-keyframes slidein {
+    from {
+        background-position: center;
+        background-size: 3000px;
+    }
+
+    to {
+        background-position: center;
+        background-size: 2750px;
+    }
+}
+
+@keyframes slidein {
+    from {
+        background-position: center;
+        background-size: 3000px;
+    }
+
+    to {
+        background-position: center;
+        background-size: 2750px;
+    }
+}
+
+
+
 #calculator {
-    width: 500px;
-    height: 700px;
-    padding: 6px;
-    border: 1px black solid;
+    width: 370px;
+    height: 550px;
+    padding: 5px;
+    border: 2px rgba(0, 0, 0, 0.685) solid;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: rgba(48, 48, 48, 0.836);
+    background-color: rgba(0, 0, 0, 0.041);
     border-radius: 10px;
-    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.4);
-    margin-top: 3rem;
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.7);
+    margin-top: 8rem;
 }
 
 .display {
     display: flex;
     flex-direction: column;
     align-items: end;
+    gap: 1rem;
     flex: 1;
-    background-color: rgba(99, 185, 145, 0.705);
+    background-color: rgba(0, 0, 0, 0.849);
     border-radius: 8px;
     margin: 4px;
+    padding: 10px;
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
     vertical-align: middle;
-    line-height: 5rem;
+    line-height: 3rem;
     font-size: 36px;
-    color: white;
+    color: rgb(255, 255, 255);
+}
+
+#displayBot {
+    width: auto;
+    height: 40px;
+    font-size: 24px;
+}
+
+#displayTop {
+    width: auto;
+    height: 40px;
+    font-size: 24px;
 }
 
 .row {
     flex: 1;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 button {
-    border-radius: 8px;
+    border-radius: 4rem;
     flex: 1;
-    margin: 4px;
-    color: rgb(0, 0, 0);
+    margin: 3px;
+    color: rgb(252, 252, 252);
     font-size: 30px;
+    border-color: rgba(0, 0, 0, 0.295);
 }
 
 .operator,
-button[data-key="="] {
-    background-color: rgba(0, 255, 157, 0.623);
+button[data-key="Enter"],
+button[data-key="Period"] {
+    background-color: rgba(31, 25, 31, 0.767);
 }
 
-button[data-key="="]:hover {
-    background-color: rgb(0, 255, 0);
-}
 
-.operand,
-button[data-key="."] {
-    background-color: rgba(69, 223, 164, 0.726);
+.operand {
+    background-color: rgba(73, 73, 73, 0.671);
 }
-
-.operand:hover,
-button[data-key="."]:hover {
-    background-color: rgb(0, 255, 157);
-    ;
-}
-
 
 
 .command {
-    background-color: rgba(255, 0, 0, 0.664);
+    background-color: rgba(153, 7, 7, 0.664);
+}
+
+button[data-key="Enter"]:hover {
+    border: 3px solid rgb(60, 255, 0);
 }
 
 .command:hover {
-    background-color: rgb(255, 0, 0);
+    border: 3px solid rgb(255, 0, 0);
 }
 
-.operator:hover {
-    background-color: rgb(0, 255, 85);
+.operand:hover {
+    border: 3px solid rgb(0, 217, 255);
 }
 
-.error {
-    background-image: url("./assets/face.jpg");
-    background-size: contain;
+.operator:hover,
+button[data-key="Period"]:hover {
+    border: 3px solid rgb(255, 230, 0);
 }
 
-.good {
-    background-image: url("./assets/smileFace.jpg");
-    background-size: contain;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-height: 700px) {
+
+
+    @-webkit-keyframes slidein {
+        from {
+            background-size: 2100px;
+        }
+
+        to {
+            background-size: 1925px;
+        }
+    }
+
+    @keyframes slidein {
+        from {
+            background-size: 2100px;
+        }
+
+        to {
+            background-size: 1925px;
+        }
+    }
+
+    #calculator {
+        width: 259px;
+        height: 385px;
+        padding: 3.5px;
+        border: 0.7px black solid;
+        border-radius: 7px;
+        box-shadow: 5.6px 5.6px 14px rgba(0, 0, 0, 0.7);
+        margin-top: 5.6rem;
+    }
+
+    .display {
+        gap: 0.7rem;
+        flex: 1;
+        border-radius: 5.6px;
+        margin: 2.8px;
+        padding: 7px;
+        line-height: 2.1rem;
+        font-size: 25.2px;
+        color: rgb(123, 255, 0);
+    }
+
+    #displayBot {
+        height: 28px;
+        font-size: 15.4px;
+    }
+
+    #displayTop {
+        height: 28px;
+        font-size: 15.4px;
+    }
+
+    button {
+        border-radius: 3rem;
+        flex: 1;
+        margin: 2.1px;
+        font-size: 21px;
+    }
+
+}
+
+
+
+
+@media screen and (max-width: 400px) {
+
+
+    @-webkit-keyframes slidein {
+        from {
+            background-size: 2100px;
+        }
+
+        to {
+            background-size: 1925px;
+        }
+    }
+
+    @keyframes slidein {
+        from {
+            background-size: 2100px;
+        }
+
+        to {
+            background-size: 1925px;
+        }
+    }
+
+    #calculator {
+        width: 259px;
+        height: 385px;
+        padding: 3.5px;
+        border: 0.7px black solid;
+        border-radius: 7px;
+        box-shadow: 5.6px 5.6px 14px rgba(0, 0, 0, 0.7);
+        margin-top: 5.6rem;
+    }
+
+    .display {
+        gap: 0.7rem;
+        flex: 1;
+        border-radius: 5.6px;
+        margin: 2.8px;
+        padding: 7px;
+        line-height: 2.1rem;
+        font-size: 25.2px;
+        color: rgb(123, 255, 0);
+    }
+
+    #displayBot {
+        height: 28px;
+        font-size: 15.4px;
+    }
+
+    #displayTop {
+        height: 28px;
+        font-size: 15.4px;
+    }
+
+    button {
+        border-radius: 3rem;
+        flex: 1;
+        margin: 2.1px;
+        font-size: 21px;
+    }
+
 }
