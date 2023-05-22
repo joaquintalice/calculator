@@ -5,50 +5,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div id="calculator">
-        <div class="display">
-            <div class="" id="displayTop"></div>
-            <div class="" id="displayBot"></div>
-        </div>
-
-        <div class="row">
-            <button data-key="Escape" class="command">AC</button>
-            <button data-key="Backspace" class="command">DEL</button>
-            <button data-key="KeyD" class="operator">/</button>
-            <button data-key="KeyF" class="operator">!</button>
-        </div>
-        <div class="row">
-            <button data-key="Digit7" class="operand">7</button>
-            <button data-key="Digit8" class="operand">8</button>
-            <button data-key="Digit9" class="operand">9</button>
-            <button data-key="KeyX" class="operator">*</button>
-        </div>
-        <div class="row">
-            <button data-key="Digit4" class="operand">4</button>
-            <button data-key="Digit5" class="operand">5</button>
-            <button data-key="Digit6" class="operand">6</button>
-            <button data-key="Slash" class="operator">-</button>
-        </div>
-        <div class="row">
-            <button data-key="Digit1" class="operand">1</button>
-            <button data-key="Digit2" class="operand">2</button>
-            <button data-key="Digit3" class="operand">3</button>
-            <button data-key="BracketRight" class="operator">+</button>
-        </div>
-        <div class="row">
-            <button data-key="KeyM" class="operator">%</button>
-            <button data-key="Digit0" class="operand">0</button>
-            <button data-key="Period" id="dot">.</button>
-            <button data-key="Enter" id="result">=</button>
-        </div>
+    <div class="header">
+        <h1 class="title">Calculator</h1>
+        <h1 class="owner">Joaquin Talice <a class="test" target="_blank" href="https://github.com/joaquintalice"><img
+                    src="./assets/github-mark-white.png" alt="github logo"></a></h1>
     </div>
 
+    <div class="main">
+        <div id="calculator">
+            <div class="display">
+                <div class="" id="displayTop"></div>
+                <div class="" id="displayBot"></div>
+            </div>
+
+            <div class="row">
+                <button data-key="Escape" class="command">AC</button>
+                <button data-key="Backspace" class="command">DEL</button>
+                <button data-key="KeyD" class="operator">/</button>
+                <button data-key="KeyF" class="operator">!</button>
+            </div>
+            <div class="row">
+                <button data-key="Digit7" class="operand">7</button>
+                <button data-key="Digit8" class="operand">8</button>
+                <button data-key="Digit9" class="operand">9</button>
+                <button data-key="KeyX" class="operator">*</button>
+            </div>
+            <div class="row">
+                <button data-key="Digit4" class="operand">4</button>
+                <button data-key="Digit5" class="operand">5</button>
+                <button data-key="Digit6" class="operand">6</button>
+                <button data-key="Slash" class="operator">-</button>
+            </div>
+            <div class="row">
+                <button data-key="Digit1" class="operand">1</button>
+                <button data-key="Digit2" class="operand">2</button>
+                <button data-key="Digit3" class="operand">3</button>
+                <button data-key="BracketRight" class="operator">+</button>
+            </div>
+            <div class="row">
+                <button data-key="KeyM" class="operator">%</button>
+                <button data-key="Digit0" class="operand">0</button>
+                <button data-key="Period" id="dot">.</button>
+                <button data-key="Enter" id="result">=</button>
+            </div>
+        </div>
+    </div>
 
 
 
