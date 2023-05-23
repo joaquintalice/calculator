@@ -48,10 +48,11 @@ function operate() {
     console.table(nums)
     console.table(operators)
     if (nums.length === 1 || operators.length === 0) {
+        let temp = displayBot.textContent;
         displayBot.textContent = "Syntax error";
 
         setTimeout(() => {
-            displayBot.textContent = "";
+            displayBot.textContent = temp;
         }, 1200);
     }
 
