@@ -35,8 +35,14 @@ dot.addEventListener("click", function () {
 
 function operate() {
     let content = displayBot.textContent;
-
+    console.log("content", content)
     let nums = content.split(/[-+*/!%]/);
+    if (nums[0] === "") {
+        nums[1] *= -1;
+        nums.shift();
+        console.log(nums)
+    }
+    console.log("nums", nums)
     let operators = content.match(/[-+*/!%]/g);
     console.table(nums)
     console.table(operators)
@@ -48,10 +54,15 @@ function operate() {
         }, 1200);
     }
 
+
     let result = parseFloat(nums[0]);
 
     for (let i = 0; i < operators.length; i++) {
         let n = parseFloat(nums[i + 1]);
+
+        if (operators[0] === "-") {
+            operators.shift();
+        };
 
         switch (operators[i]) {
             case "+":
@@ -79,7 +90,7 @@ function operate() {
     }
     if (isNaN(result)) {
         let temp = displayBot.textContent;
-        displayBot.textContent = "Syntax error";
+        displayBot.textContent = "Syntax error1";
         setTimeout(() => {
             displayBot.textContent = temp;
         }, 1200);
