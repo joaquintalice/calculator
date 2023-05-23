@@ -18,25 +18,21 @@ body {
 
 @-webkit-keyframes slidein {
     from {
-        background-position: center;
-        background-size: 3000px;
+        background-size: 2100px;
     }
 
     to {
-        background-position: center;
-        background-size: 2750px;
+        background-size: 1925px;
     }
 }
 
 @keyframes slidein {
     from {
-        background-position: center;
-        background-size: 3000px;
+        background-size: 2100px;
     }
 
     to {
-        background-position: center;
-        background-size: 2750px;
+        background-size: 1925px;
     }
 }
 
