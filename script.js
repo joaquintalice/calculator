@@ -135,7 +135,7 @@ function DEL(e) {
     if (keyPressed === "AC") {
         displayBot.textContent = "";
         displayTop.textContent = "";
-    } else if (keyPressed === "DEL" && displayBot.textContent.length > 1) {
+    } else if (keyPressed === "DEL" && displayBot.textContent.length >= 1) {
         displayBot.textContent = displayBot.textContent.slice(0, -1);
     }
 };
