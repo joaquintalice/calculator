@@ -90,7 +90,7 @@ function operate() {
     }
     if (isNaN(result)) {
         let temp = displayBot.textContent;
-        displayBot.textContent = "Syntax error1";
+        displayBot.textContent = "Syntax error";
         setTimeout(() => {
             displayBot.textContent = temp;
         }, 1200);
