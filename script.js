@@ -37,13 +37,14 @@ function operate() {
     let content = displayBot.textContent;
     console.log("content", content)
     let nums = content.split(/[-+*/!%]/);
-    if (nums[0] === "") {
+    let operators = content.match(/[-+*/!%]/g);
+    if (nums[0] === "" && operators[0] === "-") {
         nums[1] *= -1;
         nums.shift();
+        operators.shift();
         console.log(nums)
     }
     console.log("nums", nums)
-    let operators = content.match(/[-+*/!%]/g);
     console.table(nums)
     console.table(operators)
     if (nums.length === 1 || operators.length === 0) {
@@ -59,10 +60,6 @@ function operate() {
 
     for (let i = 0; i < operators.length; i++) {
         let n = parseFloat(nums[i + 1]);
-
-        if (operators[0] === "-") {
-            operators.shift();
-        };
 
         switch (operators[i]) {
             case "+":
@@ -84,7 +81,11 @@ function operate() {
                 result = module(result, n);
                 break;
             default:
-                displayBot.textContent = "Syntax error";
+                let temp = displayBot.textContent;
+                displayBot.textContent = "Syntax error"
+                setTimeout(() => {
+                    displayBot.textContent = temp;
+                }, 1200);
                 return;
         }
     }
@@ -130,10 +131,11 @@ function module(a, b) {
 
 function DEL(e) {
     const keyPressed = e.target.textContent;
-    if (keyPressed === "AC" || keyP === "AC") {
+    console.log(keyPressed)
+    if (keyPressed === "AC") {
         displayBot.textContent = "";
         displayTop.textContent = "";
-    } else if (keyPressed === "DEL" || keyP === "DEL") {
+    } else if (keyPressed === "DEL" && displayBot.textContent.length > 1) {
         displayBot.textContent = displayBot.textContent.slice(0, -1);
     }
 };
