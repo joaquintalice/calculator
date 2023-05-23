@@ -132,6 +132,7 @@ function module(a, b) {
 
 function DEL(e) {
     const keyPressed = e.target.textContent;
+
     console.log(keyPressed)
     if (keyPressed === "AC") {
         displayBot.textContent = "";
@@ -140,6 +141,7 @@ function DEL(e) {
         displayBot.textContent = displayBot.textContent.slice(0, -1);
     }
 };
+
 
 function keyboardFunctionality(e) {
     const getKeys = document.querySelectorAll(`button[data-key="${e.code}"]`);
@@ -150,10 +152,11 @@ function keyboardFunctionality(e) {
             operate();
             break;
         case "DEL":
-            DEL(e);
+            displayBot.textContent = displayBot.textContent.slice(0, -1);
             break;
         case "AC":
-            DEL(e);
+            displayBot.textContent = "";
+            displayTop.textContent = "";
             break;
         default:
             displayBot.textContent += keyP;
